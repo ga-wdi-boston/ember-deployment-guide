@@ -16,34 +16,90 @@ By the end of this, developers should be able to:
 
 -   Deploy an Ember app to GitHub Pages
 
-## Deployment
+## Deployment to Github
 
-1.  Make sure that everything is named consistently (i.e. `ember-template` ->
- `ember-deployment-example`).
 1.  If you haven't already, run `npm install` and `bower install`.
-1.  Update `config/environment.js` as follows:
+1.  Make sure that everything is named consistently (i.e. `ember-template` ->
+ `<% NAME OF YOUR CLIENT %>`). (Search via `command+shift+f`)
+1.  You need tell your Ember client to _point_ to your deployed API. Update
+`config/environment.js` to follow below:
 
-  ```js
-  if (environment === 'production') {
-    ENV.baseURL = '/ember-deployment-example/';
-    ENV.locationType = 'hash';
-  }
-  ```
+```js
+module.exports = function(environment) {
+  var ENV = {
+    modulePrefix: '<% NAME OF YOUR CLIENT will be here %>',
+    environment: environment,
+    baseURL: '/',
+    locationType: 'auto',
+    apiHost: 'http://localhost:3000/',
+    EmberENV: {
+      FEATURES: {
+        // Here you can enable experimental features on an ember canary build
+        // e.g. 'with-controller': true
+      }
+    },
+```
 
-1.  Make sure all work is committed and working on your `master` branch.
-1.  Create a `gh-pages` branch locally and check it out. Merge `master` into
-`gh-pages`.
-1.  Remove `/dist` from `.gitignore`, add and commit.
+**Yes, use `var`, not `let` for ENV.**
+
+AND FURTHER DOWN IN `config/environment.js`:
+
+```js
+if (environment === 'production') {
+  ENV.baseURL = '/';
+  ENV.locationType = 'hash';
+  ENV.apiHost = '<% replace with the URL to your deployed API %>'
+}
+```
+
+1.  Now you have to ensure you have your `application/adapter` and `ajax` files
+import the `apiHost` link.
+
+In `application/adapter` file:
+
+```js
+import ActiveModelAdapter from 'active-model-adapter';
+import ENV from '<% ember-deployment-example name %>/config/environment';
+
+export default ActiveModelAdapter.extend({
+  host: ENV.apiHost,
+  ...
+  ...
+  ...
+});
+```
+
+IF/WHEN you have a `ajax/service` file:
+
+```js
+import AjaxService from 'ember-ajax/services/ajax';
+import ENV from '<% ember-deployment-example name %>/config/environment';
+
+export default AjaxService.extend({
+  host: ENV.apiHost,
+  ...
+  ...
+  ...
+});
+```
+
+1.  Make sure all work is committed and working on your **`master`** branch.
+1.  Create a `gh-pages` branch locally via `git checkout -b gh-pages`.
+1.  **DO NOT PUSH TO GH-PAGES YET**
+1.  Remove `/dist` from `.gitignore` by adding a '#' before it.
+1.  Add and commit this change.
 1.  Run `ember build --environment=production`.
-1.  `git add /dist` and commit.
+1.  `git status` and add all files changed (_mainly `dist/`_) and some other changes; Then `commit` all changes.
 1.  Use "subtree push" to create a new gh-pages branch on GitHub composed only
-of the dist directory using:
+of the dist directory by using:
 
-  ```js
-  git subtree push --prefix dist origin gh-pages
-  ```
-(Taken from [https://gist.github.com/cobyism/4730490](https://gist.github.com/cobyism/4730490))
+```js
+git subtree push --prefix dist origin gh-pages
+```
 
+1.  Go check to your github page site and ensure all requests are working and appear
+the same as on localhost:4200.
+1.  Congrats, you've successfully deployed your Ember App!
 
 ## [License](LICENSE)
 
