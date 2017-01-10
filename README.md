@@ -48,7 +48,7 @@ AND FURTHER DOWN IN `config/environment.js`:
 if (environment === 'production') {
   ENV.baseURL = '/';
   ENV.locationType = 'hash';
-  ENV.apiHost = '<% replace with the URL to your deployed API %>'
+  ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
 ```
 
