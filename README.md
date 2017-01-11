@@ -29,7 +29,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: '<% NAME OF YOUR CLIENT will be here %>',
     environment: environment,
-    rootURL: '/',
+    rootURL: '<name-of-git-repo>',
     locationType: 'auto',
     apiHost: 'http://localhost:3000/',
     EmberENV: {
@@ -46,15 +46,16 @@ AND FURTHER DOWN IN `config/environment.js`:
 
 ```js
 if (environment === 'production') {
-  ENV.rootURL = '/';
+  ENV.rootURL = '<name-of-git-repo>';
   ENV.locationType = 'hash';
   ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
 ```
+
+1.  Now change the value of ENV.rootURL to be the name of your git repository; e.g. in the case of this repository it would be `ENV.rootURL = 'ember-deployment-guide'`
 #### Important:
 
-- Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
-
+-Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
 
 1.  Now you have to ensure you have your `application/adapter` and `ajax` files
 import the `apiHost` link.
@@ -103,7 +104,7 @@ git subtree push --prefix dist origin gh-pages
 
 1.  Go check to your github page site and ensure all requests are working and appear
 the same as on localhost:4200.
-1.  Congrats, you've successfully deployed your Ember App!
+1.  Congrats, you've successfully deployed your Ember App! Zoey and Tomster are proud of you!
 
 ## [License](LICENSE)
 
