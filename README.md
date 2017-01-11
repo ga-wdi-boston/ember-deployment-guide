@@ -29,7 +29,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: '<% NAME OF YOUR CLIENT will be here %>',
     environment: environment,
-    rootURL: '<name-of-git-repo>',
+    rootURL: '/',
     locationType: 'auto',
     apiHost: 'http://localhost:3000/',
     EmberENV: {
@@ -53,6 +53,7 @@ if (environment === 'production') {
 ```
 
 1.  Now change the value of ENV.rootURL to be the name of your git repository; e.g. in the case of this repository it would be `ENV.rootURL = 'ember-deployment-guide'`
+
 #### Important:
 
 -Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
