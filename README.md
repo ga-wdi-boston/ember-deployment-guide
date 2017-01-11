@@ -21,7 +21,7 @@ By the end of this, developers should be able to:
 1.  If you haven't already, run `npm install` and `bower install`.
 1.  Make sure that everything is named consistently (i.e. `ember-template` ->
  `<% NAME OF YOUR CLIENT %>`). (Search via `command+shift+f`)
-1.  You need tell your Ember client to _point_ to your deployed API. Update
+1.  You need to tell your Ember client to _point_ to your deployed API. Update
 `config/environment.js` to follow below:
 
 ```js
@@ -29,7 +29,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: '<% NAME OF YOUR CLIENT will be here %>',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     apiHost: 'http://localhost:3000/',
     EmberENV: {
@@ -46,11 +46,17 @@ AND FURTHER DOWN IN `config/environment.js`:
 
 ```js
 if (environment === 'production') {
-  ENV.baseURL = '/';
+  ENV.rootURL = '/<name-of-git-repo>';
   ENV.locationType = 'hash';
-  ENV.apiHost = '<% replace with the URL to your deployed API %>'
+  ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
 ```
+
+1.  Now change the value of ENV.rootURL to be the name of your git repository; e.g. in the case of this repository it would be `ENV.rootURL = '/ember-deployment-guide'`
+
+#### Important:
+
+-Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
 
 1.  Now you have to ensure you have your `application/adapter` and `ajax` files
 import the `apiHost` link.
@@ -99,10 +105,10 @@ git subtree push --prefix dist origin gh-pages
 
 1.  Go check to your github page site and ensure all requests are working and appear
 the same as on localhost:4200.
-1.  Congrats, you've successfully deployed your Ember App!
+1.  Congrats, you've successfully deployed your Ember App! Zoey and Tomster are proud of you!
 
 ## [License](LICENSE)
 
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or alternative
-licensing, please contact legal@ga.co.
+1.  All software code is licensed under GNU GPLv3. For commercial use or
+    alternative licensing, please contact legal@ga.co.
