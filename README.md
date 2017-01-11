@@ -29,7 +29,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: '<% NAME OF YOUR CLIENT will be here %>',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     apiHost: 'http://localhost:3000/',
     EmberENV: {
@@ -46,7 +46,7 @@ AND FURTHER DOWN IN `config/environment.js`:
 
 ```js
 if (environment === 'production') {
-  ENV.baseURL = '/';
+  ENV.rootURL = '/';
   ENV.locationType = 'hash';
   ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
