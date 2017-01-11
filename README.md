@@ -21,7 +21,7 @@ By the end of this, developers should be able to:
 1.  If you haven't already, run `npm install` and `bower install`.
 1.  Make sure that everything is named consistently (i.e. `ember-template` ->
  `<% NAME OF YOUR CLIENT %>`). (Search via `command+shift+f`)
-1.  You need tell your Ember client to _point_ to your deployed API. Update
+1.  You need to tell your Ember client to _point_ to your deployed API. Update
 `config/environment.js` to follow below:
 
 ```js
