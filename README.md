@@ -46,13 +46,13 @@ AND FURTHER DOWN IN `config/environment.js`:
 
 ```js
 if (environment === 'production') {
-  ENV.rootURL = '<name-of-git-repo>';
+  ENV.rootURL = '/<name-of-git-repo>';
   ENV.locationType = 'hash';
   ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
 ```
 
-1.  Now change the value of ENV.rootURL to be the name of your git repository; e.g. in the case of this repository it would be `ENV.rootURL = 'ember-deployment-guide'`
+1.  Now change the value of ENV.rootURL to be the name of your git repository; e.g. in the case of this repository it would be `ENV.rootURL = '/ember-deployment-guide'`
 
 #### Important:
 
