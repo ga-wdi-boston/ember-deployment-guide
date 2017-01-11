@@ -51,6 +51,10 @@ if (environment === 'production') {
   ENV.apiHost = '<% replace with the URL to your deployed API %>';
 }
 ```
+#### Important:
+
+- Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
+
 
 1.  Now you have to ensure you have your `application/adapter` and `ajax` files
 import the `apiHost` link.
