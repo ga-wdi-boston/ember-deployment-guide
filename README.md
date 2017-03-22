@@ -62,10 +62,10 @@ if (environment === 'production') {
 
 -Note that `rootURL` is *NOT* camelcase. For example, `rootUrl` will not work.
 
-1.  Now you have to ensure you have your `application/adapter` and `ajax` files
+1.  Now you have to ensure you have your `adapters/application.js` and `ajax` files
 import the `apiHost` link.
 
-In `application/adapter` file:
+In `adapters/application.js` file:
 
 ```js
 import ActiveModelAdapter from 'active-model-adapter';
