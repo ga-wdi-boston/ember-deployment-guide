@@ -24,6 +24,10 @@ By the end of this, developers should be able to:
 1.  You need to tell your Ember client to _point_ to your deployed API. Update
 `config/environment.js` to follow below:
 
+#### Important:
+
+-Note that if you do not see the apiHost line, you will need to add it now as seen below.
+
 ```js
 module.exports = function(environment) {
   var ENV = {
