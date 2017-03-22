@@ -79,10 +79,10 @@ export default ActiveModelAdapter.extend({
 });
 ```
 
-IF/WHEN you have a `ajax/service` file:
+IF/WHEN you have a `services/ember-ajax` file:
 
 ```js
-import AjaxService from 'ember-ajax/services/ajax';
+import AjaxService from 'services/ember-ajax';
 import ENV from '<% ember-deployment-example name %>/config/environment';
 
 export default AjaxService.extend({
