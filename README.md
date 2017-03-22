@@ -44,7 +44,7 @@ module.exports = function(environment) {
     },
 ```
 
-**Yes, use `var`, not `let` for ENV.**
+**Yes, use `var`, not `const` for ENV.**
 
 AND FURTHER DOWN IN `config/environment.js`:
 
