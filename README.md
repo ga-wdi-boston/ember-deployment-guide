@@ -97,8 +97,7 @@ export default AjaxService.extend({
 1.  Create a `gh-pages` branch locally via `git checkout -b gh-pages`.
 1.  **DO NOT PUSH TO GH-PAGES YET**
 1.  Remove `/dist` from `.gitignore` by adding a '#' before it.
-1.  Add and commit this change. (`git add dist/`)
-<details><summary>You just said remove, why am I adding again?:</summary> This is because you just removed `dist/` from the gitignore, which means that git is now aware of it and will track it if added. We want to track dist on the gh-pages branch, so we add and commit it here.</details>
+1.  Add and commit this change. (`git add dist/`)[why?](#adding-dist)
 1.  Run `ember build --environment=production`.
 1.  `git status` and add all files changed (_mainly `dist/`_) and some other changes; Then `commit` all changes.
 1.  Use "subtree push" to create a new gh-pages branch on GitHub composed only
@@ -111,6 +110,11 @@ git subtree push --prefix dist origin gh-pages
 1.  Go check to your github page site and ensure all requests are working and appear
 the same as on localhost:4200.
 1.  Congrats, you've successfully deployed your Ember App! Zoey and Tomster are proud of you!
+
+##### Adding dist/
+
+_You just said remove, why am I adding again? This is because you just removed `dist/` from the gitignore, which means that git is now aware of it and will track it if added. We want to track dist on the gh-pages branch, so we add and commit it here._
+
 
 ## [License](LICENSE)
 
