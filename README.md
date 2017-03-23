@@ -98,7 +98,7 @@ export default AjaxService.extend({
 1.  **DO NOT PUSH TO GH-PAGES YET**
 1.  Remove `/dist` from `.gitignore` by adding a '#' before it.
 1.  Add and commit this change. (`git add dist/`)
-<details><summary>*You just said remove, why am I adding again?:*</summary><options> This is because you just removed `dist/` from the gitignore, which means that git is now aware of it and will track it if added. We want to track dist on `gh-pages` so we add and commit it here.*</details>
+<details><summary>You just said remove, why am I adding again?:</summary> This is because you just removed `dist/` from the gitignore, which means that git is now aware of it and will track it if added. We want to track dist on the gh-pages branch, so we add and commit it here.</details>
 1.  Run `ember build --environment=production`.
 1.  `git status` and add all files changed (_mainly `dist/`_) and some other changes; Then `commit` all changes.
 1.  Use "subtree push" to create a new gh-pages branch on GitHub composed only
